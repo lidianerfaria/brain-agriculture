@@ -1,10 +1,10 @@
-import { Header, LateralModal } from "./components";
+import { Header } from "./components";
+import { Input } from "./components/Input";
 
 function App() {
   return (
     <>
       <Header />
-      <LateralModal />
     </>
   );
 }

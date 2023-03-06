@@ -5,8 +5,6 @@ export default {
     align-items: center;
     background-color: #629763;
     display: flex;
-    /* position: relative;
-    z-index: 1; */
     justify-content: space-between;
     padding: 28px 40px 28px 40px;
     width: 100%;

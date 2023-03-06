@@ -38,23 +38,4 @@ export default {
     border: none;
     cursor: pointer;
   `,
-  Button: styled.button`
-    background-color: #629763;
-    border-radius: 24px;
-    border: none;
-    color: #fbfbfb;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 16px 46px;
-
-    &:hover {
-      background-color: #879676;
-    }
-
-    @media (max-width: 768px) {
-      font-size: 12px;
-      padding: 12px;
-    }
-  `,
 };
