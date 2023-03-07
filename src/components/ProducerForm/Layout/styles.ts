@@ -24,7 +24,8 @@ export default {
     width: 250px;
 
     &:hover {
-      background-color: #879676;
+      background-color: #4d3c2d;
+      transition: 0.5s;
     }
 
     @media (max-width: 768px) {
