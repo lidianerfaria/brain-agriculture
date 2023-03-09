@@ -39,6 +39,15 @@ export default {
       font-size: 16px;
     }
 
+    &:hover {
+      color: #fefefe;
+      background-color: #4d3c2d;
+      transition: 0.5s;
+      svg {
+        color: #fefefe;
+      }
+    }
+
     @media (max-width: 768px) {
       font-size: 12px;
       padding: 12px;

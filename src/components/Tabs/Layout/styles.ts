@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export default {
   Container: styled.div`
-    ul {
+    #ul-container {
       display: flex;
       gap: 64px;
       list-style: none;

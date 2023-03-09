@@ -9,11 +9,11 @@ export const Tabs = ({ children, ...props }: ITabsLayout) => {
 
   return (
     <S.Container {...props}>
-      <ul>
+      <ul id="ul-container">
         {children.map((item, index) => (
           <TabTitle
-            key={index}
             index={index}
+            key={index}
             setSelectedTab={setSelectedTab}
             title={item.props.title}
           />

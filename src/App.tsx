@@ -1,4 +1,4 @@
-import { Header, Tab, Tabs } from "./components";
+import { Header, RegisterList, Tab, Tabs } from "./components";
 
 function App() {
   return (
@@ -6,7 +6,9 @@ function App() {
       <Header />
       <Tabs>
         <Tab title="Dashboard">Dashboard</Tab>
-        <Tab title="Produtores">Edite seus cadastros</Tab>
+        <Tab title="Produtores">
+          <RegisterList />
+        </Tab>
       </Tabs>
     </>
   );

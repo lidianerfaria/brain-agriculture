@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export default {
-  Container: styled.li``,
   Button: styled.button`
     color: #4c4c4c;
     font-size: 24px;
