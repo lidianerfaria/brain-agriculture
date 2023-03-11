@@ -1,63 +1,41 @@
 import { IProducerForm } from "./data";
 import { Form as Layout } from "./Layout";
-import { useState } from "react";
+import { object } from "yup";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+
 import * as yup from "yup";
 
 export const Form = ({ ...props }: IProducerForm) => {
-  const [cpfOrCnpj, setCpfOrCnpj] = useState("");
-  const [producerName, setProducerName] = useState("");
-  const [farmName, setFarmName] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("");
-  const [totalArea, setTotalArea] = useState("");
-  const [arableArea, setArableArea] = useState("");
-  const [vegetationArea, setVegetationArea] = useState("");
-  const [input, setInput] = useState({
-    cpfOrCnpj,
-    producerName,
-    farmName,
-    city,
-    state,
-    totalArea,
-    arableArea,
-    vegetationArea,
+  const schema = object({
+    cpfOrCnpj: yup.string().required("Campo obrigatório."),
+    name: yup.string().required("Campo obrigatório."),
+    producerName: yup.string().required("Campo obrigatório."),
+    farmName: yup.string().required("Campo obrigatório."),
+    city: yup.string().required("Campo obrigatório."),
+    state: yup.string().required("Campo obrigatório."),
+    totalArea: yup.string().required("Campo obrigatório."),
+    arableArea: yup.string().required("Campo obrigatório."),
+    vegetationArea: yup.string().required("Campo obrigatório."),
   });
 
-  const handleInputChange = (fieldName: string, value: string) => {
-    setInput((prevState) => ({
-      ...prevState,
-      [fieldName]: value,
-    }));
-  };
+  const {
+    register,
+    handleSubmit: onSubmit,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(schema) });
 
-  const initialValues = {
-    cpfOrCnpj: "",
-    producerName: "",
-    farmName: "",
-    city: "",
-    state: "",
-    totalArea: "",
-    arableArea: "",
-    vegetationArea: "",
+  const handleSubmit = (data: any) => {
+    console.log(data);
   };
-
-  const validationSchema = yup.object().shape({
-    name: yup.string().required(),
-    producerName: yup.string().required(),
-    farmName: yup.string().required(),
-    city: yup.string().required(),
-    state: yup.string().required(),
-    totalArea: yup.string().required(),
-    arableArea: yup.string().required(),
-    vegetationArea: yup.string().required(),
-  });
 
   const layoutProps = {
     ...props,
-    validationSchema,
-    initialValues,
-    handleInputChange,
-    cpfOrCnpj,
+    schema,
+    register,
+    onSubmit,
+    errors,
+    handleSubmit,
   };
 
   return <Layout {...layoutProps} />;

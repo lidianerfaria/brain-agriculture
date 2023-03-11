@@ -1,97 +1,99 @@
 import { IProducerForm } from "../data";
-import { Input } from "../../../components";
-
-import { Formik, Form as FormikForm } from "formik";
 import S from "./styles";
 
 export const Form = ({
-  validationSchema,
-  initialValues,
+  schema,
+  register,
+  onSubmit,
+  errors,
   handleSubmit,
-  handleInputChange,
-  cpfOrCnpj,
   ...props
 }: IProducerForm) => {
   return (
-    <S.Container {...props}>
-      <Formik
-        initialValues={initialValues}
-        onSubmit={handleInputChange}
-        validationSchema={validationSchema}
-      >
-        {({ errors, handleChange, values }) => {
-          return (
-            <FormikForm>
-              <Input
-                label="CPF ou CNPJ"
-                errorMessage="CPF ou CNPJ inválido."
-                hasError={!!errors.cpfOrCnpj}
-                name={cpfOrCnpj}
-                onChange={handleChange("cpfOrCnpj")}
-                placeholder="teste"
-                value={values.cpfOrCnpj}
-              />
-              <Input
-                label="Nome do(a) Produtor(a)"
-                errorMessage={errors.producerName}
-                hasError={!!errors.producerName}
-                name="producerName"
-                onChange={handleChange("producerName")}
-                value={values.producerName}
-              />
-              <Input
-                label="Nome da Fazenda"
-                errorMessage={errors.farmName}
-                hasError={!!errors.farmName}
-                name="farmName"
-                onChange={handleChange("farmName")}
-                value={values.farmName}
-              />
-              <Input
-                label="Cidade"
-                errorMessage={errors.city}
-                hasError={!!errors.city}
-                name="city"
-                onChange={handleChange("city")}
-                value={values.city}
-              />
-              <Input
-                label="Estado"
-                errorMessage={errors.state}
-                hasError={!!errors.state}
-                name="state"
-                onChange={handleChange("state")}
-                value={values.state}
-              />
-              <Input
-                label="Área Total"
-                errorMessage={errors.totalArea}
-                hasError={!!errors.totalArea}
-                name="totalArea"
-                onChange={handleChange("totalArea")}
-                value={values.totalArea}
-              />
-              <Input
-                label="Área Agricultável"
-                errorMessage={errors.arableArea}
-                hasError={!!errors.arableArea}
-                name="arableArea"
-                onChange={handleChange("arableArea")}
-                value={values.arableArea}
-              />
-              <Input
-                label="Área de Vegetação"
-                errorMessage={errors.vegetationArea}
-                hasError={!!errors.vegetationArea}
-                name="vegetationArea"
-                onChange={handleChange("vegetationArea")}
-                value={values.vegetationArea}
-              />
-              <S.Button type="submit">Salvar novo cadastro</S.Button>
-            </FormikForm>
-          );
-        }}
-      </Formik>
+    <S.Container>
+      <form onSubmit={onSubmit(handleSubmit)} {...props}>
+        <S.InputGroup>
+          <label htmlFor="cpfOrCnpj">CPF ou CNPJ</label>
+          <input
+            type="text"
+            id="cpfOrCnpj"
+            placeholder="Digite o CPF ou CNPJ"
+            {...register("cpfOrCnpj")}
+          />
+          <span>{errors?.cpfOrCnpj?.message}</span>
+        </S.InputGroup>
+        <S.InputGroup>
+          <label htmlFor="producerName">Nome do(a) Produtor(a)</label>
+          <input
+            type="text"
+            id="producerName"
+            placeholder="Digite o nome do(a) Produtor(a)"
+            {...register("producerName")}
+          />
+          <span>{errors?.producerName?.message}</span>
+        </S.InputGroup>
+        <S.InputGroup>
+          <label htmlFor="farmName">Nome da Fazenda</label>
+          <input
+            type="text"
+            id="farmName"
+            placeholder="Digite o nome da Fazenda"
+            {...register("farmName")}
+          />
+          <span>{errors?.farmName?.message}</span>
+        </S.InputGroup>
+        <S.InputGroup>
+          <label htmlFor="city">Cidade</label>
+          <input
+            type="text"
+            id="city"
+            placeholder="Digite o nome da cidade"
+            {...register("city")}
+          />
+          <span>{errors?.city?.message}</span>
+        </S.InputGroup>
+        <S.InputGroup>
+          <label htmlFor="state">Estado</label>
+          <input
+            type="text"
+            id="state"
+            placeholder="Insira o estado"
+            {...register("state")}
+          />
+          <span>{errors?.state?.message}</span>
+        </S.InputGroup>
+        <S.InputGroup>
+          <label htmlFor="totalArea">Área Total</label>
+          <input
+            type="text"
+            id="totalArea"
+            placeholder="Insira a área total da Fazenda em hectares"
+            {...register("totalArea")}
+          />
+          <span>{errors?.totalArea?.message}</span>
+        </S.InputGroup>
+        <S.InputGroup>
+          <label htmlFor="arableArea">Área Agricultável</label>
+          <input
+            type="text"
+            id="arableArea"
+            placeholder="Insira a área agricultável da Fazenda em hectares"
+            {...register("arableArea")}
+          />
+          <span>{errors?.arableArea?.message}</span>
+        </S.InputGroup>
+        <S.InputGroup>
+          <label htmlFor="vegetationArea">Área de Vegetação</label>
+          <input
+            type="text"
+            id="producerName"
+            placeholder="Insira a área de vegetação da Fazenda em hectares"
+            {...register("vegetationArea")}
+          />
+          <span>{errors?.vegetationArea?.message}</span>
+        </S.InputGroup>
+        <S.Button type="submit">Salvar novo cadastro</S.Button>
+      </form>
     </S.Container>
   );
 };

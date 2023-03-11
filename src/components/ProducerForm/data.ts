@@ -1,5 +1,3 @@
-export interface IProducerForm {
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-}
+export interface IProducerForm {}
 
 export interface IProducerFormLayout extends IProducerForm {}
