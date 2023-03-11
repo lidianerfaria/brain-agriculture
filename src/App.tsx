@@ -1,7 +1,9 @@
 import { Header, RegisterList, Tab, Tabs } from "./components";
+// import { Provider } from "react-redux";
 
 function App() {
   return (
+    // <Provider store={}>
     <>
       <Header />
       <Tabs>
@@ -11,6 +13,7 @@ function App() {
         </Tab>
       </Tabs>
     </>
+    // </Provider>
   );
 }
 

@@ -1,16 +1,14 @@
-import { useState } from "react";
 import { IHeader } from "../data";
 import { BsPlusCircle } from "react-icons/bs";
 import S from "./styles";
 import { LateralModal } from "../../../components";
 
-export const Header = (props: IHeader) => {
-  const [open, setOpen] = useState(false);
-
-  function handleCloseModal() {
-    setOpen(false);
-  }
-
+export const Header = ({
+  handleCloseModal,
+  open,
+  setOpen,
+  ...props
+}: IHeader) => {
   return (
     <S.Container {...props}>
       <S.Text>Brain Agriculture</S.Text>

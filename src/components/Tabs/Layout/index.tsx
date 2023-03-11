@@ -1,12 +1,14 @@
-import { useState } from "react";
 import { ITabsLayout } from "../data";
 import { TabTitle } from "../../TabTitle";
 
 import S from "./styles";
 
-export const Tabs = ({ children, ...props }: ITabsLayout) => {
-  const [selectedTab, setSelectedTab] = useState(0);
-
+export const Tabs = ({
+  children,
+  selectedTab,
+  setSelectedTab,
+  ...props
+}: ITabsLayout) => {
   return (
     <S.Container {...props}>
       <ul id="ul-container">
