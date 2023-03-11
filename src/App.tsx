@@ -1,10 +1,9 @@
 import { Header, RegisterList, Tab, Tabs } from "./components";
-// import { Provider } from "react-redux";
+import { AppProvider } from "./context";
 
 function App() {
   return (
-    // <Provider store={}>
-    <>
+    <AppProvider>
       <Header />
       <Tabs>
         <Tab title="Dashboard">Dashboard</Tab>
@@ -12,8 +11,7 @@ function App() {
           <RegisterList />
         </Tab>
       </Tabs>
-    </>
-    // </Provider>
+    </AppProvider>
   );
 }
 

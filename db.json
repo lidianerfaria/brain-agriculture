@@ -1,0 +1,15 @@
+{
+  "producer": [
+    {
+      "cpfOrCnpj": "123.456.789-00",
+      "fullName": "João da Silva",
+      "farmName": "Fazenda Esperança",
+      "city": "São Paulo",
+      "state": "SP",
+      "totalArea": 500,
+      "arableArea": 300,
+      "vegetationArea": 200,
+      "crops": ["Soja", "Milho", "Café", "Algodão", "Cana de Áçucar"]
+    }
+  ]
+}
