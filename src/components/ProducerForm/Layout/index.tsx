@@ -63,21 +63,11 @@ export const Form = ({
           <span>{errors?.state?.message}</span>
         </S.InputGroup>
         <S.InputGroup>
-          <label htmlFor="totalArea">Área Total</label>
-          <input
-            type="text"
-            id="totalArea"
-            placeholder="Insira a área total da Fazenda em hectares"
-            {...register("totalArea")}
-          />
-          <span>{errors?.totalArea?.message}</span>
-        </S.InputGroup>
-        <S.InputGroup>
           <label htmlFor="arableArea">Área Agricultável</label>
           <input
             type="text"
             id="arableArea"
-            placeholder="Insira a área agricultável da Fazenda em hectares"
+            placeholder="Hectares"
             {...register("arableArea")}
           />
           <span>{errors?.arableArea?.message}</span>
@@ -87,10 +77,20 @@ export const Form = ({
           <input
             type="text"
             id="producerName"
-            placeholder="Insira a área de vegetação da Fazenda em hectares"
+            placeholder="Hectares"
             {...register("vegetationArea")}
           />
           <span>{errors?.vegetationArea?.message}</span>
+        </S.InputGroup>
+        <S.InputGroup>
+          <label htmlFor="totalArea">Área Total</label>
+          <input
+            type="text"
+            id="totalArea"
+            placeholder="Hectares"
+            {...register("totalArea")}
+          />
+          <span>{errors?.totalArea?.message}</span>
         </S.InputGroup>
         <S.Button type="submit">Salvar novo cadastro</S.Button>
       </form>
