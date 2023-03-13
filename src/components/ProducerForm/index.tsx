@@ -2,59 +2,64 @@ import { IProducerForm } from "./data";
 import { Form as Layout } from "./Layout";
 
 import { useForm } from "react-hook-form";
+
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import * as Yup from "yup";
+import { useState, useContext } from "react";
+import AppContext from "../../context/AppContext";
+
+const cpfCnpjRegex =
+  /^((\d{3}\.?\d{3}\.?\d{3}\-?\d{2})|(\d{2}\.?\d{3}\.?\d{3}\/?\d{4}\-?\d{2}))$/;
+
+const schema = Yup.object().shape({
+  cpfOrCnpj: Yup.string()
+    .required("Campo obrigatório.")
+    .matches(cpfCnpjRegex, "CPF ou CNPJ inválido."),
+  producerName: Yup.string().required("Campo obrigatório."),
+  farmName: Yup.string().required("Campo obrigatório."),
+  city: Yup.string().required("Campo obrigatório."),
+  state: Yup.string().required("Campo obrigatório."),
+  arableArea: Yup.number()
+    .required("Campo obrigatório.")
+    .typeError("Campo obrigatório.")
+    .positive("A área deve ser um número positivo."),
+  vegetationArea: Yup.number()
+    .required("Campo obrigatório.")
+    .typeError("Campo obrigatório.")
+    .positive("A área deve ser um número positivo."),
+  totalArea: Yup.number()
+    .required("Campo obrigatório.")
+    .typeError("Campo obrigatório.")
+    .test(
+      "sum-equals-total",
+      "A soma de Área Agricultável e Vegetação não deve ser maior que a Área Total da Fazenda.",
+      function (value) {
+        const { arableArea, vegetationArea } = this.parent;
+        return arableArea + vegetationArea < value;
+      }
+    ),
+});
 
 export const Form = ({ ...props }: IProducerForm) => {
-  const cpfCnpjRegex =
-    /^((\d{3}\.?\d{3}\.?\d{3}\-?\d{2})|(\d{2}\.?\d{3}\.?\d{3}\/?\d{4}\-?\d{2}))$/;
-
-  const schema = Yup.object().shape({
-    cpfOrCnpj: Yup.string()
-      .required("Campo obrigatório.")
-      .matches(cpfCnpjRegex, "CPF ou CNPJ inválido."),
-    name: Yup.string().required("Campo obrigatório."),
-    producerName: Yup.string().required("Campo obrigatório."),
-    farmName: Yup.string().required("Campo obrigatório."),
-    city: Yup.string().required("Campo obrigatório."),
-    state: Yup.string().required("Campo obrigatório."),
-    arableArea: Yup.number()
-      .required("Campo obrigatório.")
-      .positive("Número inválido."),
-    vegetationArea: Yup.number()
-      .required("Campo obrigatório.")
-      .positive("Número inválido."),
-    totalArea: Yup.number()
-      .required("Campo obrigatório.")
-      .positive("Número inválido.")
-      .test(
-        "sum-equals-total",
-        "A soma de Área Agricultável e Vegetação não deve ser maior que a Área Total da Fazenda.",
-        function (value) {
-          const { arableArea, vegetationArea } = this.parent;
-          return arableArea + vegetationArea < value;
-        }
-      ),
-  });
+  const { handleFormData } = useContext(AppContext);
 
   const {
     register,
-    handleSubmit: onSubmit,
+    handleSubmit,
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  const handleSubmit = (data: any) => {
-    console.log(data);
+  const onSubmit = (data: any) => {
+    console.log("dados", data);
   };
 
   const layoutProps = {
     ...props,
-    schema,
     register,
     onSubmit,
-    errors,
     handleSubmit,
+    errors,
   };
 
   return <Layout {...layoutProps} />;

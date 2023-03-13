@@ -12,9 +12,15 @@ export const AppContext = createContext<IAppContextProps>(
 );
 
 export const AppContextProvider = ({ children }: PropsWithChildren) => {
+  const [form, setForm] = useState({});
+
+  function handleFormData(data: any) {
+    setForm(data);
+  }
+
   return (
     <AppContext.Provider
-      value={{ registerProducer, editProducer, deleteProducer }}
+      value={{ registerProducer, editProducer, deleteProducer, handleFormData }}
     >
       {children}
     </AppContext.Provider>
