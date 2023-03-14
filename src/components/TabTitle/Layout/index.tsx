@@ -2,15 +2,10 @@ import { ITabTitleLayout } from "../data";
 
 import S from "./styles";
 
-export const TabTitle = ({
-  index,
-  setSelectedTab,
-  title,
-  ...props
-}: ITabTitleLayout) => {
+export const TabTitle = ({ handleClick, title, ...props }: ITabTitleLayout) => {
   return (
     <li {...props}>
-      <S.Button onClick={() => setSelectedTab(index)}>{title}</S.Button>
+      <S.Button onClick={handleClick}>{title}</S.Button>
     </li>
   );
 };

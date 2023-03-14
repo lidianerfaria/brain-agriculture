@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import * as Yup from "yup";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import AppContext from "../../context/AppContext";
 
 const cpfCnpjRegex =
@@ -51,7 +51,7 @@ export const Form = ({ ...props }: IProducerForm) => {
   } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmit = (data: any) => {
-    console.log("dados", data);
+    handleFormData(data);
   };
 
   const layoutProps = {

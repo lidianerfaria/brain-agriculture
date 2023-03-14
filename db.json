@@ -1,6 +1,7 @@
 {
   "producer": [
     {
+      "id": 1,
       "cpfOrCnpj": "123.456.789-00",
       "fullName": "João da Silva",
       "farmName": "Fazenda Esperança",
