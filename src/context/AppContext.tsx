@@ -1,11 +1,10 @@
-import { createContext, PropsWithChildren, useState } from "react";
+import { createContext, PropsWithChildren, useState, useEffect } from "react";
 
 import { IAppContextProps } from "../utils/interfaces/context";
 import {
   registerProducer,
   editProducer,
   deleteProducer,
-  getProducer,
   api,
 } from "../services/api";
 
@@ -14,7 +13,7 @@ export const AppContext = createContext<IAppContextProps>(
 );
 
 export const AppContextProvider = ({ children }: PropsWithChildren) => {
-  const [form, setForm] = useState({}); //post
+  const [form, setForm] = useState({});
   const [data, setData] = useState([]);
 
   function handleNewForm(data: any) {
@@ -22,15 +21,14 @@ export const AppContextProvider = ({ children }: PropsWithChildren) => {
     registerProducer(data);
   }
 
-  async function getProducer() {
-    try {
-      const response = await api.get("/producer");
-      setData(response.data);
-      console.log("data1", response.data);
-    } catch (error) {
-      console.error("Erro ao acessar produtor rural:", error);
-    }
+  async function handleData(): Promise<void> {
+    const response = await api.get("/producer");
+    setData(response.data);
   }
+
+  useEffect(() => {
+    handleData();
+  }, []);
 
   return (
     <AppContext.Provider
@@ -39,7 +37,6 @@ export const AppContextProvider = ({ children }: PropsWithChildren) => {
         editProducer,
         deleteProducer,
         handleNewForm,
-        getProducer,
         data,
       }}
     >

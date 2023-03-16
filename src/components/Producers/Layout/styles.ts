@@ -16,7 +16,6 @@ export default {
   ListItemWrapper: styled.ul`
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-gap: 24px;
 
     @media (max-width: 1633px) {
       grid-template-columns: 100%;
@@ -28,6 +27,7 @@ export default {
     display: flex;
     flex-direction: row;
     height: 100px;
+    margin-bottom: 24px;
     max-width: 100%;
     width: 100%;
   `,
@@ -36,8 +36,12 @@ export default {
     gap: 40px;
     svg {
       color: #629763;
-      cursor: pointer;
       font-size: 24px;
+    }
+    button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
     }
   `,
   InfoWrapper: styled.div`

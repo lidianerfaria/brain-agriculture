@@ -1,16 +1,26 @@
 {
   "producer": [
     {
-      "id": 1,
-      "cpfOrCnpj": "123.456.789-00",
-      "fullName": "João da Silva",
-      "farmName": "Fazenda Esperança",
-      "city": "São Paulo",
+      "totalArea": 5,
+      "vegetationArea": 1,
+      "arableArea": 1,
       "state": "SP",
-      "totalArea": 500,
-      "arableArea": 300,
-      "vegetationArea": 200,
-      "crops": ["Soja", "Milho", "Café", "Algodão", "Cana de Áçucar"]
+      "city": "Taubaté",
+      "farmName": "esperança",
+      "producerName": "LIDI",
+      "cpfOrCnpj": "41234605856",
+      "id": 4
+    },
+    {
+      "totalArea": 5,
+      "vegetationArea": 1,
+      "arableArea": 1,
+      "state": "SP",
+      "city": "Taubaté",
+      "farmName": "Tanjiro's house",
+      "producerName": "Tanjiro",
+      "cpfOrCnpj": "41234605856",
+      "id": 5
     }
   ]
 }

@@ -1,6 +1,6 @@
 export interface IRuralProducer {
   cpfOrCnpj: string;
-  fullName: string;
+  producerName: string;
   farmName: string;
   city: string;
   state: string;
