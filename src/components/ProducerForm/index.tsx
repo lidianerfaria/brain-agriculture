@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import * as Yup from "yup";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import AppContext from "../../context/AppContext";
 
 const cpfCnpjRegex =
@@ -42,7 +42,8 @@ const schema = Yup.object().shape({
 });
 
 export const Form = ({ ...props }: IProducerForm) => {
-  const { handleFormData } = useContext(AppContext);
+  const [isChecked, setIsChecked] = useState(false);
+  const { handleNewForm } = useContext(AppContext);
 
   const {
     register,
@@ -51,7 +52,11 @@ export const Form = ({ ...props }: IProducerForm) => {
   } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmit = (data: any) => {
-    handleFormData(data);
+    handleNewForm(data);
+  };
+
+  const handleOnChange = () => {
+    setIsChecked(!isChecked);
   };
 
   const layoutProps = {
@@ -60,6 +65,8 @@ export const Form = ({ ...props }: IProducerForm) => {
     onSubmit,
     handleSubmit,
     errors,
+    handleOnChange,
+    isChecked,
   };
 
   return <Layout {...layoutProps} />;

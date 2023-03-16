@@ -1,9 +1,9 @@
 export interface IProducerForm {
   schema: {};
-  // register: ;
-  // onSubmit: ;
-  // errors: ;
-  // handleSubmit: ;
+  //  register:;
+  onSubmit: () => void;
+  //  errors:;
+  handleSubmit: () => void;
 }
 
 export interface IProducerFormLayout extends IProducerForm {}

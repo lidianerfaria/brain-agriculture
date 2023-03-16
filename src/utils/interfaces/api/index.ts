@@ -7,5 +7,5 @@ export interface IRuralProducer {
   totalArea: number;
   arableArea: number;
   vegetationArea: number;
-  crops: string[];
+  crops: [];
 }

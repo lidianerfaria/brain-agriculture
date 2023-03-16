@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { IProducerForm } from "../data";
 import S from "./styles";
 
@@ -7,6 +7,8 @@ export const Form = ({
   onSubmit,
   handleSubmit,
   errors,
+  handleOnChange,
+  isChecked,
 }: IProducerForm) => {
   return (
     <S.Container>
@@ -90,6 +92,22 @@ export const Form = ({
             {...register("totalArea")}
           />
           <span>{errors?.totalArea?.message}</span>
+        </S.InputGroup>
+
+        <S.InputGroup>
+          <p>Culturas Plantadas</p>
+          <S.CheckboxWrap>
+            <input
+              type="checkbox"
+              id="crops"
+              name="crops"
+              value="Milho"
+              checked={isChecked}
+              onChange={handleOnChange}
+            />
+            Milho
+          </S.CheckboxWrap>
+          <div>Above checkbox is {isChecked ? "checked" : "un-checked"}.</div>
         </S.InputGroup>
 
         <S.Button type="submit">Salvar novo cadastro</S.Button>

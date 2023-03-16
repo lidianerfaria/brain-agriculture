@@ -24,7 +24,8 @@ export default {
     span {
       color: #cd4a4a;
     }
-    input {
+    input[type="text"],
+    input[type="number"] {
       border: 1px solid #d0d0d0;
       border-radius: 16px;
       color: #101010;
@@ -59,5 +60,9 @@ export default {
       font-size: 12px;
       padding: 12px;
     }
+  `,
+  CheckboxWrap: styled.div`
+    display: flex;
+    gap: 4px;
   `,
 };
