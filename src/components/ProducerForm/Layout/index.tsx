@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { IProducerForm } from "../data";
 import S from "./styles";
 
@@ -7,8 +7,6 @@ export const Form = ({
   onSubmit,
   handleSubmit,
   errors,
-  handleOnChange,
-  isChecked,
 }: IProducerForm) => {
   return (
     <S.Container>
@@ -99,15 +97,50 @@ export const Form = ({
           <S.CheckboxWrap>
             <input
               type="checkbox"
-              id="crops"
-              name="crops"
-              value="Milho"
-              checked={isChecked}
-              onChange={handleOnChange}
+              id="customCheckbox"
+              value="Soja"
+              {...register("customCheckbox")}
             />
-            Milho
+            <label>Soja</label>
           </S.CheckboxWrap>
-          <div>Above checkbox is {isChecked ? "checked" : "un-checked"}.</div>
+
+          <S.CheckboxWrap>
+            <input
+              type="checkbox"
+              id="customCheckbox"
+              value="Milho"
+              {...register("customCheckbox")}
+            />
+            <label>Milho</label>
+          </S.CheckboxWrap>
+          <S.CheckboxWrap>
+            <input
+              type="checkbox"
+              id="customCheckbox"
+              value="Algodão"
+              {...register("customCheckbox")}
+            />
+            <label>Algodão</label>
+          </S.CheckboxWrap>
+          <S.CheckboxWrap>
+            <input
+              type="checkbox"
+              id="customCheckbox"
+              value="Café"
+              {...register("customCheckbox")}
+            />
+            <label>Café</label>
+          </S.CheckboxWrap>
+          <S.CheckboxWrap>
+            <input
+              type="checkbox"
+              id="customCheckbox"
+              value="Cana de Açúcar"
+              {...register("customCheckbox")}
+            />
+            <label>Cana de Açúcar</label>
+          </S.CheckboxWrap>
+          <span>{errors?.customCheckbox?.message}</span>
         </S.InputGroup>
 
         <S.Button type="submit">Salvar novo cadastro</S.Button>

@@ -1,12 +1,9 @@
 import { IProducerForm } from "./data";
 import { Form as Layout } from "./Layout";
-
 import { useForm } from "react-hook-form";
-
 import { yupResolver } from "@hookform/resolvers/yup";
-
 import * as Yup from "yup";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import AppContext from "../../context/AppContext";
 
 const cpfCnpjRegex =
@@ -39,10 +36,14 @@ const schema = Yup.object().shape({
         return arableArea + vegetationArea < value;
       }
     ),
+  customCheckbox: Yup.array()
+    .typeError("Selecione suas culturas.")
+    .min(1, "Por favor, selecione pelo menos uma cultura.")
+    .of(Yup.string().required("Campo obrigatório."))
+    .required("Campo obrigatório."),
 });
 
 export const Form = ({ ...props }: IProducerForm) => {
-  const [isChecked, setIsChecked] = useState(false);
   const { handleNewForm } = useContext(AppContext);
 
   const {
@@ -55,18 +56,12 @@ export const Form = ({ ...props }: IProducerForm) => {
     handleNewForm(data);
   };
 
-  const handleOnChange = () => {
-    setIsChecked(!isChecked);
-  };
-
   const layoutProps = {
     ...props,
     register,
     onSubmit,
     handleSubmit,
     errors,
-    handleOnChange,
-    isChecked,
   };
 
   return <Layout {...layoutProps} />;
