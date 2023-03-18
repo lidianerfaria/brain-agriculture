@@ -6,3 +6,5 @@ export * from "./TabTitle";
 export * from "./Tabs";
 export * from "./Producers";
 export * from "./StateChart";
+export * from "./TotalNumberFarmsCard";
+export * from "./TotalHectaresFarmsCard";

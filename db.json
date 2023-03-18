@@ -2,29 +2,31 @@
   "producer": [
     {
       "customCheckbox": [
-        "Cana de Açúcar"
+        "Soja"
       ],
-      "totalArea": 5,
-      "vegetationArea": 1,
-      "arableArea": 1,
+      "totalArea": 600,
+      "vegetationArea": 200,
+      "arableArea": 200,
       "state": "SP",
       "city": "Taubaté",
-      "farmName": "esperança",
-      "producerName": "LIDI",
+      "farmName": "Magia",
+      "producerName": "Lidiane",
       "cpfOrCnpj": "41234605856",
       "id": 1
     },
     {
       "customCheckbox": [
+        "Soja",
+        "Café",
         "Cana de Açúcar"
       ],
-      "totalArea": 5,
-      "vegetationArea": 1,
-      "arableArea": 1,
-      "state": "SP",
+      "totalArea": 400,
+      "vegetationArea": 200,
+      "arableArea": 200,
+      "state": "MG",
       "city": "Taubaté",
-      "farmName": "esperança",
-      "producerName": "LIDI",
+      "farmName": "TanTan",
+      "producerName": "Tanjiro",
       "cpfOrCnpj": "41234605856",
       "id": 2
     }
