@@ -14,8 +14,9 @@ export interface IFarmerProps {
 }
 export interface IAppContextProps {
   registerProducer: (producer: IRuralProducer) => Promise<void>;
-  editProducer: (producer: IRuralProducer) => Promise<void>;
-  deleteProducer: (id: number) => Promise<void>;
+  handleEditProducer: (id: number, producer: IRuralProducer) => Promise<void>;
+  handleDeleteProducer: (id: number) => Promise<void>;
   handleNewForm: (data: any) => void;
+  handleData: () => void;
   data: any;
 }

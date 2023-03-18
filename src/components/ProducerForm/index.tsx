@@ -33,7 +33,7 @@ const schema = Yup.object().shape({
       "A soma de Área Agricultável e Vegetação não deve ser maior que a Área Total da Fazenda.",
       function (value) {
         const { arableArea, vegetationArea } = this.parent;
-        return arableArea + vegetationArea < value;
+        return arableArea + vegetationArea <= value;
       }
     ),
   customCheckbox: Yup.array()
@@ -54,6 +54,7 @@ export const Form = ({ ...props }: IProducerForm) => {
 
   const onSubmit = (data: any) => {
     handleNewForm(data);
+    props.closeModal();
   };
 
   const layoutProps = {

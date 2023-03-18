@@ -6,13 +6,8 @@ export const TabTitle = ({
   index,
   ...props
 }: ITabTitleLayout) => {
-  function handleClick() {
-    setSelectedTab(index);
-  }
-
   const layoutProps = {
     ...props,
-    handleClick,
   };
   return (
     <Layout index={index} setSelectedTab={setSelectedTab} {...layoutProps} />

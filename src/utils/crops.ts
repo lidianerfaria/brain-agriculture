@@ -1,17 +1,47 @@
-export const crops = [
+export const data = [
   {
-    name: "Soja",
+    manufacturer: "Ford",
+    model: "Ka",
+    sales: 3,
   },
   {
-    name: "Milho",
+    manufacturer: "Ford",
+    model: "Fiesta",
+    sales: 10,
   },
   {
-    name: "Algodão",
+    manufacturer: "Ford",
+    model: "Focus",
+    sales: 5,
   },
   {
-    name: "Café",
+    manufacturer: "Ford",
+    model: "Mustang",
+    sales: 1,
   },
   {
-    name: "Cana de Açúcar ",
+    manufacturer: "Honda",
+    model: "Civic",
+    sales: 10,
+  },
+  {
+    manufacturer: "Honda",
+    model: "Fit",
+    sales: 50,
+  },
+  {
+    manufacturer: "Toyota",
+    model: "Corola",
+    sales: 70,
+  },
+  {
+    manufacturer: "Toyota",
+    model: "Etios",
+    sales: 20,
+  },
+  {
+    manufacturer: "Volks",
+    model: "Gol",
+    sales: 100,
   },
 ];

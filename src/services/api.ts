@@ -23,18 +23,18 @@ export async function getProducer() {
   }
 }
 
-export async function editProducer(producer: IRuralProducer) {
+export async function editProducer(id: number, producer: IRuralProducer) {
   try {
-    const response = await api.put(`/producer/${producer.cpfOrCnpj}`, producer);
+    const response = await api.put(`/producer/${id}`, producer);
     console.log("Produtor rural editado com sucesso:", response.data);
   } catch (error) {
     console.error("Erro ao editar produtor rural:", error);
   }
 }
 
-export async function deleteProducer(cpfOrCnpj: string) {
+export async function deleteProducer(id: number) {
   try {
-    const response = await api.delete(`/producer/${cpfOrCnpj}`);
+    const response = await api.delete(`/producer/${id}`);
     console.log("Produtor rural excluído com sucesso:", response.data);
   } catch (error) {
     console.error("Erro ao excluir produtor rural:", error);

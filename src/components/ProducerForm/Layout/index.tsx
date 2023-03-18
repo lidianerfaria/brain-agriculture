@@ -3,10 +3,13 @@ import { IProducerForm } from "../data";
 import S from "./styles";
 
 export const Form = ({
+  schema,
   register,
   onSubmit,
-  handleSubmit,
   errors,
+  handleSubmit,
+  closeModal,
+  id,
 }: IProducerForm) => {
   return (
     <S.Container>
@@ -143,7 +146,7 @@ export const Form = ({
           <span>{errors?.customCheckbox?.message}</span>
         </S.InputGroup>
 
-        <S.Button type="submit">Salvar novo cadastro</S.Button>
+        <S.Button type="submit">Salvar</S.Button>
       </form>
     </S.Container>
   );

@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
+type IButtonProps = {
+  onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+};
+
 export default {
-  Button: styled.button`
+  Button: styled.button<IButtonProps>`
     color: #4c4c4c;
     font-size: 24px;
     font-weight: 700;

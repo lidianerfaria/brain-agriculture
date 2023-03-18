@@ -1,6 +1,8 @@
 export interface ITabTitleLayout {
   title: string;
   index: number;
-  setSelectedTab: (index: number) => number;
-  handleClick: (index: number) => void;
+  setSelectedTab: React.Dispatch<React.SetStateAction<number>>;
+  handleClick?: (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => void;
 }

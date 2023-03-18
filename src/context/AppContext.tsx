@@ -7,23 +7,39 @@ import {
   deleteProducer,
   api,
 } from "../services/api";
+import { IRuralProducer } from "../utils";
 
 export const AppContext = createContext<IAppContextProps>(
   {} as IAppContextProps
 );
 
 export const AppContextProvider = ({ children }: PropsWithChildren) => {
-  const [form, setForm] = useState({});
-  const [data, setData] = useState([]);
+  const [form, setForm] = useState({}); //post
+  const [data, setData] = useState([]); //todo alterar nome allProducers
 
-  function handleNewForm(data: any) {
+  async function handleNewForm(data: any) {
     setForm(data);
-    registerProducer(data);
+    await registerProducer(data);
+    await handleData();
   }
 
   async function handleData(): Promise<void> {
+    //todo mudar nome da função para: getAllProducers
     const response = await api.get("/producer");
     setData(response.data);
+  }
+
+  async function handleDeleteProducer(id: number): Promise<void> {
+    await deleteProducer(id);
+    await handleData();
+  }
+
+  async function handleEditProducer(
+    id: number,
+    producer: IRuralProducer
+  ): Promise<void> {
+    await editProducer(id, producer);
+    await handleData();
   }
 
   useEffect(() => {
@@ -34,10 +50,11 @@ export const AppContextProvider = ({ children }: PropsWithChildren) => {
     <AppContext.Provider
       value={{
         registerProducer,
-        editProducer,
-        deleteProducer,
+        handleEditProducer,
+        handleDeleteProducer,
         handleNewForm,
         data,
+        handleData,
       }}
     >
       {children}

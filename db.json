@@ -1,6 +1,9 @@
 {
   "producer": [
     {
+      "customCheckbox": [
+        "Cana de Açúcar"
+      ],
       "totalArea": 5,
       "vegetationArea": 1,
       "arableArea": 1,
@@ -9,18 +12,21 @@
       "farmName": "esperança",
       "producerName": "LIDI",
       "cpfOrCnpj": "41234605856",
-      "id": 4
+      "id": 1
     },
     {
+      "customCheckbox": [
+        "Cana de Açúcar"
+      ],
       "totalArea": 5,
       "vegetationArea": 1,
       "arableArea": 1,
       "state": "SP",
       "city": "Taubaté",
-      "farmName": "Tanjiro's house",
-      "producerName": "Tanjiro",
+      "farmName": "esperança",
+      "producerName": "LIDI",
       "cpfOrCnpj": "41234605856",
-      "id": 5
+      "id": 2
     }
   ]
 }

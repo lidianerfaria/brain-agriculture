@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 export interface ITabLayout {
-  title: string;
-  children: ReactNode;
-  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  title?: string;
+  children?: ReactNode;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }

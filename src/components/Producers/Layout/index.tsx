@@ -6,7 +6,7 @@ import S from "./styles";
 import { IFarmerProps } from "../../../utils";
 
 export const Producers = () => {
-  const { data, deleteProducer } = useContext(AppContext);
+  const { data, handleDeleteProducer } = useContext(AppContext);
 
   return (
     <S.Container>
@@ -25,7 +25,7 @@ export const Producers = () => {
                 <button>
                   <MdEdit />
                 </button>
-                <button onClick={() => deleteProducer(item.id)}>
+                <button onClick={() => handleDeleteProducer(item.id)}>
                   <AiFillDelete />
                 </button>
               </S.Wrapper>

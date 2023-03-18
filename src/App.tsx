@@ -1,4 +1,4 @@
-import { Header, Producers, Tab, Tabs } from "./components";
+import { Charts, Header, Producers, Tab, Tabs } from "./components";
 import { AppProvider } from "./context";
 
 function App() {
@@ -11,6 +11,7 @@ function App() {
           <Producers />
         </Tab>
       </Tabs>
+      <Charts />
     </AppProvider>
   );
 }
