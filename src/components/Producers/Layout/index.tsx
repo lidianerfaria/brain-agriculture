@@ -6,12 +6,12 @@ import S from "./styles";
 import { IFarmerProps } from "../../../utils";
 
 export const Producers = () => {
-  const { data, handleDeleteProducer } = useContext(AppContext);
+  const { allProducers, handleDeleteProducer } = useContext(AppContext);
 
   return (
     <S.Container>
       <S.ListTitle>Edite seus cadastros</S.ListTitle>
-      {data.map((item: IFarmerProps) => (
+      {allProducers.map((item: IFarmerProps) => (
         <S.ListItemWrapper key={item.id}>
           <S.ListItem>
             <S.WrapperLeft>

@@ -14,24 +14,23 @@ export const AppContext = createContext<IAppContextProps>(
 );
 
 export const AppContextProvider = ({ children }: PropsWithChildren) => {
-  const [form, setForm] = useState({}); //post
-  const [data, setData] = useState([]); //todo alterar nome allProducers
+  const [form, setForm] = useState({});
+  const [allProducers, setAllProducers] = useState([]);
 
   async function handleNewForm(data: any) {
     setForm(data);
     await registerProducer(data);
-    await handleData();
+    await getAllProducers();
   }
 
-  async function handleData(): Promise<void> {
-    //todo mudar nome da função para: getAllProducers
+  async function getAllProducers(): Promise<void> {
     const response = await api.get("/producer");
-    setData(response.data);
+    setAllProducers(response.data);
   }
 
   async function handleDeleteProducer(id: number): Promise<void> {
     await deleteProducer(id);
-    await handleData();
+    await getAllProducers();
   }
 
   async function handleEditProducer(
@@ -39,11 +38,11 @@ export const AppContextProvider = ({ children }: PropsWithChildren) => {
     producer: IRuralProducer
   ): Promise<void> {
     await editProducer(id, producer);
-    await handleData();
+    await getAllProducers();
   }
 
   useEffect(() => {
-    handleData();
+    getAllProducers();
   }, []);
 
   return (
@@ -53,8 +52,8 @@ export const AppContextProvider = ({ children }: PropsWithChildren) => {
         handleEditProducer,
         handleDeleteProducer,
         handleNewForm,
-        data,
-        handleData,
+        allProducers,
+        getAllProducers,
       }}
     >
       {children}

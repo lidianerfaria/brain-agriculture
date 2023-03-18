@@ -17,6 +17,6 @@ export interface IAppContextProps {
   handleEditProducer: (id: number, producer: IRuralProducer) => Promise<void>;
   handleDeleteProducer: (id: number) => Promise<void>;
   handleNewForm: (data: any) => void;
-  handleData: () => void;
-  data: any;
+  getAllProducers: () => void;
+  allProducers: any;
 }
