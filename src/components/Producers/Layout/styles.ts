@@ -15,12 +15,8 @@ export default {
   `,
   ListItemWrapper: styled.ul`
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 100%;
     grid-gap: 24px;
-
-    @media (max-width: 1633px) {
-      grid-template-columns: 100%;
-    }
   `,
   ListItem: styled.li`
     background-color: #fbfbfb;

@@ -3,6 +3,8 @@ import {
   TotalHectaresFarmsCard,
   TotalNumberFarmsCard,
 } from "../components";
+import { CropChart } from "../components/CropChart";
+import { GroundChart } from "../components/GroundChart";
 import S from "./styles";
 
 export const Dashboard = () => {
@@ -13,6 +15,8 @@ export const Dashboard = () => {
         <TotalHectaresFarmsCard />
       </S.CardWrap>
       <StateChart />
+      <CropChart />
+      <GroundChart />
     </S.Container>
   );
 };
