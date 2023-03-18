@@ -5,4 +5,4 @@ export * from "./Tab";
 export * from "./TabTitle";
 export * from "./Tabs";
 export * from "./Producers";
-export * from "./Charts";
+export * from "./StateChart";
