@@ -54,7 +54,7 @@ export const Form = ({ ...props }: IProducerForm) => {
 
   const onSubmit = (data: any) => {
     handleNewForm(data);
-    props.closeModal();
+    props.closeModal && props.closeModal();
   };
 
   const layoutProps = {

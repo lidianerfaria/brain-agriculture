@@ -6,12 +6,12 @@ type IButtonProps = {
 
 export default {
   Button: styled.button<IButtonProps>`
-    color: #4c4c4c;
-    font-size: 24px;
-    font-weight: 700;
     background-color: transparent;
     border: none;
+    color: #4c4c4c;
     cursor: pointer;
+    font-size: 24px;
+    font-weight: 700;
 
     &:hover {
       color: #4d3c2d;

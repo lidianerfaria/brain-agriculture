@@ -1,4 +1,4 @@
-**Start to Aplication**
+**Start to Aplication:**
 yarn dev
 
 **Start to API:**

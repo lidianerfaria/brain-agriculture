@@ -4,7 +4,7 @@ import _ from "lodash";
 import AppContext from "../../../context/AppContext";
 
 export const GroundChart = () => {
-  const [chartData, setChartData] = useState([]);
+  const [chartData, setChartData] = useState<Array<Array<string | number>>>([]);
   const { allProducers } = useContext(AppContext);
 
   const handleChartData = (

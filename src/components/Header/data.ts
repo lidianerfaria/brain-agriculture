@@ -2,7 +2,7 @@ export interface IHeader {
   open?: boolean;
   setOpen?: any;
   openModal?: () => void;
-  closeModal?: () => void;
+  closeModal?: () => void | undefined;
   handleCloseModal?: () => void;
 }
 

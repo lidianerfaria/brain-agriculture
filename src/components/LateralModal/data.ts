@@ -1,5 +1,5 @@
 export interface ILateralModal {
-  closeModal?: () => void;
+  closeModal?: () => void | undefined;
 }
 
 export interface ILateralModalLayout extends ILateralModal {}

@@ -4,7 +4,7 @@ import _ from "lodash";
 import AppContext from "../../../context/AppContext";
 
 export const StateChart = () => {
-  const [chartData, setChartData] = useState([]);
+  const [chartData, setChartData] = useState<Array<Array<string | number>>>([]);
   const { allProducers } = useContext(AppContext);
 
   const handleChartData = (data: { state: string }[]) => {
@@ -31,7 +31,7 @@ export const StateChart = () => {
         data={chartData}
         width={"100%"}
         height={"400px"}
-        options={options} // Adicionando a propriedade options com o título
+        options={options}
       />
     </div>
   );
