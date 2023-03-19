@@ -13,7 +13,7 @@ export const Form = ({
 }: IProducerForm) => {
   return (
     <S.Container>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit?.(onSubmit)}>
         <S.InputGroup>
           <label htmlFor="cpfOrCnpj">CPF ou CNPJ</label>
           <input
