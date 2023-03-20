@@ -12,7 +12,7 @@ export const Tabs = ({
   return (
     <S.Container {...props}>
       <ul id="ul-container">
-        {children.map((item, index) => (
+        {children?.map((item, index) => (
           <TabTitle
             index={index}
             key={index}

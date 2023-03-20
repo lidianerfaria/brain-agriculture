@@ -8,10 +8,10 @@ export const LateralModal = ({ ...props }: ILateralModal) => {
   return (
     <S.Container {...props}>
       <S.Header>
-        <S.Title>Novo cadastro</S.Title>
+        <S.Title>{props._id ? "Editar cadastro" : "Novo cadastro"}</S.Title>
         <IoMdClose onClick={props.closeModal} />
       </S.Header>
-      <Form />
+      <Form closeModal={props.closeModal} id={props._id} />
     </S.Container>
   );
 };

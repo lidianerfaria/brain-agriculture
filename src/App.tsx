@@ -1,19 +1,20 @@
-import { Header, RegisterList, Tab, Tabs } from "./components";
-// import { Provider } from "react-redux";
+import { Header, Producers, Tab, Tabs } from "./components";
+import { Dashboard } from "./containers";
+import { AppProvider } from "./context";
 
 function App() {
   return (
-    // <Provider store={}>
-    <>
+    <AppProvider>
       <Header />
       <Tabs>
-        <Tab title="Dashboard">Dashboard</Tab>
+        <Tab title="Dashboard">
+          <Dashboard />
+        </Tab>
         <Tab title="Produtores">
-          <RegisterList />
+          <Producers />
         </Tab>
       </Tabs>
-    </>
-    // </Provider>
+    </AppProvider>
   );
 }
 
