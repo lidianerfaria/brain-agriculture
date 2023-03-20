@@ -23,6 +23,15 @@ export async function getProducer() {
   }
 }
 
+export async function getOneProducer(id: number) {
+  try {
+    const response = await api.get(`/producer/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error("Erro ao editar produtor rural:", error);
+  }
+}
+
 export async function editProducer(id: number, producer: IRuralProducer) {
   try {
     const response = await api.put(`/producer/${id}`, producer);

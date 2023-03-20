@@ -3,8 +3,9 @@ import { Form as Layout } from "./Layout";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import AppContext from "../../context/AppContext";
+import { getOneProducer } from "../.././services/api";
 
 const cpfCnpjRegex =
   /^((\d{3}\.?\d{3}\.?\d{3}\-?\d{2})|(\d{2}\.?\d{3}\.?\d{3}\/?\d{4}\-?\d{2}))$/;
@@ -43,17 +44,55 @@ const schema = Yup.object().shape({
     .required("Campo obrigatório."),
 });
 
+type IFormFields =
+  | "cpfOrCnpj"
+  | "producerName"
+  | "farmName"
+  | "city"
+  | "state"
+  | "arableArea"
+  | "vegetationArea"
+  | "totalArea"
+  | "customCheckbox";
+
 export const Form = ({ ...props }: IProducerForm) => {
-  const { handleNewForm } = useContext(AppContext);
+  const { handleNewForm, handleEditProducer } = useContext(AppContext);
+  const [defaultValues, setDefaultValues] = useState({
+    cpfOrCnpj: "",
+    producerName: "",
+    farmName: "",
+    city: "",
+    state: "",
+    arableArea: "",
+    vegetationArea: "",
+    totalArea: "",
+    customCheckbox: [],
+  });
+
+  useEffect(() => {
+    if (props.id) {
+      getOneProducer(props.id).then((response) => {
+        setDefaultValues(response);
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    const dafaultValuesKeys = Object.keys(defaultValues) as IFormFields[];
+    dafaultValuesKeys.forEach((formKey: IFormFields) => {
+      setValue(formKey, defaultValues[formKey]);
+    });
+  }, [defaultValues]);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ resolver: yupResolver(schema) });
+    setValue,
+  } = useForm({ defaultValues, resolver: yupResolver(schema) });
 
-  const onSubmit = (data: any) => {
-    handleNewForm(data);
+  const onSubmit = (producer: any) => {
+    props.id ? handleEditProducer(props.id, producer) : handleNewForm(producer);
     props.closeModal && props.closeModal();
   };
 
@@ -63,6 +102,7 @@ export const Form = ({ ...props }: IProducerForm) => {
     onSubmit,
     handleSubmit,
     errors,
+    defaultValues,
   };
 
   return <Layout {...layoutProps} />;

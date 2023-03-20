@@ -1,4 +1,10 @@
-import { createContext, PropsWithChildren, useState, useEffect } from "react";
+import {
+  createContext,
+  PropsWithChildren,
+  useState,
+  useEffect,
+  useMemo,
+} from "react";
 
 import { IAppContextProps } from "../utils/interfaces/context";
 import {
@@ -14,50 +20,45 @@ export const AppContext = createContext<IAppContextProps>(
 );
 
 export const AppContextProvider = ({ children }: PropsWithChildren) => {
-  const [form, setForm] = useState({});
-  const [allProducers, setAllProducers] = useState([]);
+  const [allProducers, setAllProducers] = useState<IRuralProducer[]>([]);
 
   async function handleNewForm(data: any) {
-    setForm(data);
     await registerProducer(data);
-    await getAllProducers();
+    getAllProducers();
   }
 
-  async function getAllProducers(): Promise<void> {
+  async function getAllProducers() {
     const response = await api.get("/producer");
     setAllProducers(response.data);
   }
 
-  async function handleDeleteProducer(id: number): Promise<void> {
+  async function handleDeleteProducer(id: number) {
     await deleteProducer(id);
-    await getAllProducers();
+    getAllProducers();
   }
 
-  async function handleEditProducer(
-    id: number,
-    producer: IRuralProducer
-  ): Promise<void> {
+  async function handleEditProducer(id: number, producer: IRuralProducer) {
     await editProducer(id, producer);
-    await getAllProducers();
+    getAllProducers();
   }
 
   useEffect(() => {
     getAllProducers();
   }, []);
 
+  const contextValue = useMemo(() => {
+    return {
+      registerProducer,
+      handleEditProducer,
+      handleDeleteProducer,
+      handleNewForm,
+      allProducers,
+      getAllProducers,
+    };
+  }, [allProducers]);
+
   return (
-    <AppContext.Provider
-      value={{
-        registerProducer,
-        handleEditProducer,
-        handleDeleteProducer,
-        handleNewForm,
-        allProducers,
-        getAllProducers,
-      }}
-    >
-      {children}
-    </AppContext.Provider>
+    <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>
   );
 };
 

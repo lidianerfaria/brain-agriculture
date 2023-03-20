@@ -1,16 +1,13 @@
 import React from "react";
-import { IProducerForm } from "../data";
+import { IProducerFormLayout } from "../data";
 import S from "./styles";
 
 export const Form = ({
-  schema,
   register,
   onSubmit,
   errors,
   handleSubmit,
-  closeModal,
-  id,
-}: IProducerForm) => {
+}: IProducerFormLayout) => {
   return (
     <S.Container>
       <form onSubmit={handleSubmit?.(onSubmit)}>

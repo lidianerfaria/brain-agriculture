@@ -1,5 +1,5 @@
 **Start to Aplication:**
 yarn dev
 
-**Start to API:**
+**You need start API:**
 yarn json-server --watch db.json -p 3333

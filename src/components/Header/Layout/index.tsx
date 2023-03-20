@@ -12,7 +12,7 @@ export const Header = ({
   return (
     <S.Container {...props}>
       <S.Text>Brain Agriculture</S.Text>
-      <S.Button onClick={() => setOpen(true)}>
+      <S.Button onClick={() => setOpen?.(true)}>
         <BsPlusCircle />
         Novo cadastro
       </S.Button>

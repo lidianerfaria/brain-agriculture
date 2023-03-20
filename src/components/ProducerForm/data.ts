@@ -1,7 +1,6 @@
 import { FormEventHandler } from "react";
 
 export interface IProducerForm {
-  schema?: {};
   register?: any;
   onSubmit?: (data: any) => void | undefined;
   errors?: any;
