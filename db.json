@@ -1,34 +1,22 @@
 {
   "producer": [
     {
-      "customCheckbox": [
-        "Soja"
-      ],
-      "totalArea": 600,
-      "vegetationArea": 200,
-      "arableArea": 200,
-      "state": "SP",
+      "cpfOrCnpj": "45645642258",
+      "producerName": "Tanjirooo",
+      "farmName": "Tanjiro's Farm",
       "city": "Taubaté",
-      "farmName": "Magia",
-      "producerName": "Lidiane",
-      "cpfOrCnpj": "41234605856",
-      "id": 1
-    },
-    {
+      "state": "São Paulo",
+      "arableArea": 5,
+      "vegetationArea": 6,
+      "totalArea": 15,
       "customCheckbox": [
         "Soja",
+        "Milho",
+        "Algodão",
         "Café",
         "Cana de Açúcar"
       ],
-      "totalArea": 400,
-      "vegetationArea": 200,
-      "arableArea": 200,
-      "state": "MG",
-      "city": "Taubaté",
-      "farmName": "TanTan",
-      "producerName": "Tanjiro",
-      "cpfOrCnpj": "41234605856",
-      "id": 2
+      "id": 1
     }
   ]
 }
