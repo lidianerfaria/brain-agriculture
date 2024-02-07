@@ -17,7 +17,7 @@
 2. **Instale as dependencias:** <br/>
 `yarn`
 
-3. **Rode a API:**
+3. **Rode a API:** <br/>
 `yarn server`
 
 4. **Rode o projeto:** <br/>
